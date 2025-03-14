@@ -5,7 +5,7 @@ import {
 import { 
     getFirestore, doc, setDoc, getDoc, updateDoc 
 } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
-
+//test
 // Firebase-Instanzen abrufen
 const auth = getAuth();
 const db = getFirestore();
