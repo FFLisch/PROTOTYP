@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Benutzername in Firestore speichern
                 await setDoc(doc(db, "users", user.uid), {
                     username: username,
-                    email: email
+                    email: email,
+                    usercode: user.uid
                 });
 
                 alert("Registrierung erfolgreich!");
