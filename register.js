@@ -5,10 +5,15 @@ import {
 import { 
     getFirestore, doc, setDoc, getDoc, updateDoc 
 } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
-//test
+
+import { 
+    getStorage, ref, uploadBytes, getDownloadURL 
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
+
 // Firebase-Instanzen abrufen
 const auth = getAuth();
 const db = getFirestore();
+const storage = getStorage();
 
 // Registrierung
 document.addEventListener("DOMContentLoaded", function () {
@@ -83,10 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     await updateDoc(doc(db, "users", user.uid), { username: newUsername });
 
                     if (profilePhoto) {
-                        const storageRef = firebase.storage().ref();
-                        const photoRef = storageRef.child(`profilePhotos/${user.uid}`);
-                        await photoRef.put(profilePhoto);
-                        const photoURL = await photoRef.getDownloadURL();
+                        const photoRef = ref(storage, `profilePhotos/${user.uid}`);
+                        await uploadBytes(photoRef, profilePhoto);
+                        const photoURL = await getDownloadURL(photoRef);
                         await updateProfile(user, { photoURL: photoURL });
                     }
 
