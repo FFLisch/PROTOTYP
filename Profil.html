@@ -50,22 +50,6 @@
         </div>
     </nav>
 
-    <div id="profileContainer" class="profile-container" style="display: none;">
-        <h2>Profil bearbeiten</h2>
-        <img src="default-profile.png" id="profileImage" class="profile-image" alt="Profilbild">
-        <form id="profileForm">
-            <div class="mb-3">
-                <label for="profileUsername" class="form-label">Benutzername</label>
-                <input type="text" class="form-control" id="profileUsername" required>
-            </div>
-            <div class="mb-3">
-                <label for="profilePhoto" class="form-label">Profilfoto</label>
-                <input type="file" class="form-control" id="profilePhoto">
-            </div>
-            <button id="saveProfileButton" type="submit" class="btn btn-primary w-100">Speichern</button>
-        </form>
-    </div>
-
     <div id="registerContainer" class="register-container">
         <h2>Registrieren</h2>
         <form id="registerForm">
@@ -97,6 +81,22 @@
                 <input type="password" class="form-control" id="loginPassword" required>
             </div>
             <button type="submit" class="btn btn-primary w-100">Anmelden</button>
+        </form>
+    </div>
+
+    <div id="profileContainer" class="profile-container" style="display: none;">
+        <h2>Profil bearbeiten</h2>
+        <img src="default-profile.png" id="profileImage" class="profile-image" alt="Profilbild">
+        <form id="profileForm">
+            <div class="mb-3">
+                <label for="profileUsername" class="form-label">Benutzername</label>
+                <input type="text" class="form-control" id="profileUsername" required>
+            </div>
+            <div class="mb-3">
+                <label for="profilePhoto" class="form-label">Profilfoto</label>
+                <input type="file" class="form-control" id="profilePhoto">
+            </div>
+            <button id="saveProfileButton" type="submit" class="btn btn-primary w-100">Speichern</button>
         </form>
     </div>
 
