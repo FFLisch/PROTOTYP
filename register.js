@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         alert("Registrierung erfolgreich!");
-        window.location.href = "Profil.html";
+        window.location.href = "Profil.html"; // Redirect to profile page
       } catch (error) {
         alert("Fehler: " + error.message);
       }
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         await signInWithEmailAndPassword(auth, email, password);
         alert("Anmeldung erfolgreich!");
-        window.location.href = "Profil.html";
+        window.location.href = "Profil.html"; // Redirect to profile page
       } catch (error) {
         alert("Fehler: " + error.message);
       }
