@@ -222,7 +222,7 @@
                     <li class="nav-item"><a class="nav-link active" href="Beobachtung.html"><i class="fa-solid fa-camera"></i>&nbsp;Beobachtungen</a></li>
                     <li class="nav-item"><a class="nav-link" href="Rangliste.html"><i class="fa-solid fa-ranking-star"></i>&nbsp;Rangliste</a></li>
                     <li class="nav-item"><a class="nav-link" id="profileLink" href="Profil.html"><i class="fa-solid fa-user"></i>&nbsp;Profil</a></li>
-                    <button id="logoutButton" class="btn btn-danger" style="display: none;">Abmelden</button>
+                    <button id="logoutButton" class="btn btn-danger">Abmelden</button>
                 </ul>
             </div>
         </div>
@@ -437,6 +437,30 @@
 
         // Initialisierung
         showMap(); // Standardmäßig Karte anzeigen
+    </script>
+
+    <script>
+        // Check if the user is logged in
+        function checkLoginStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn) {
+                document.getElementById('logoutButton').style.display = 'block';
+            } else {
+                document.getElementById('logoutButton').style.display = 'none';
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+
+        // Add event listener to the logout button
+        document.getElementById('logoutButton').addEventListener('click', logout);
+
+        // Check login status on page load
+        checkLoginStatus();
     </script>
 
 </body>
