@@ -444,10 +444,12 @@
             function checkLoginStatus() {
                 const isLoggedIn = localStorage.getItem('isLoggedIn');
                 const logoutButton = document.getElementById('logoutButton');
-                if (isLoggedIn === 'true') {
-                    logoutButton.style.display = 'block';
-                } else {
-                    logoutButton.style.display = 'none';
+                if (logoutButton) {
+                    if (isLoggedIn === 'true') {
+                        logoutButton.style.display = 'block';
+                    } else {
+                        logoutButton.style.display = 'none';
+                    }
                 }
             }
 
