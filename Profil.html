@@ -163,6 +163,8 @@
                 try {
                     await signInWithEmailAndPassword(auth, email, password);
                     alert("Anmeldung erfolgreich!");
+                    // Set the login status in localStorage when the user logs in
+                    localStorage.setItem('isLoggedIn', 'true');
                     window.location.href = "Profil_eingelogt.html";
                 } catch (error) {
                     alert("Fehler: " + error.message);
