@@ -40,13 +40,15 @@ const registerForm = document.getElementById("registerForm");
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    const username = document.getElementById("registerUsername").value;
     const email = document.getElementById("registerEmail").value;
     const password = document.getElementById("registerPassword").value;
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      await setDoc(doc(db, "users", user.uid), { email: user.email });
+      await setDoc(doc(db, "users", user.uid), { email: user.email, username: username });
+      await updateProfile(user, { displayName: username });
       alert("Registrierung erfolgreich!");
     } catch (error) {
       alert("Fehler: " + error.message);
