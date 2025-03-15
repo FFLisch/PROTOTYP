@@ -56,27 +56,42 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="Home.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Home.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="Hinzufuegen.html"><i class="fa-solid fa-plus"></i>&nbsp;Hinzufügen</a></li>
                     <li class="nav-item"><a class="nav-link" href="Beobachtung.html"><i class="fa-solid fa-camera"></i>&nbsp;Beobachtungen</a></li>
                     <li class="nav-item"><a class="nav-link" href="Rangliste.html"><i class="fa-solid fa-ranking-star"></i>&nbsp;Rangliste</a></li>
                     <li class="nav-item"><a class="nav-link" id="profileLink" href="Profil.html"><i class="fa-solid fa-user"></i>&nbsp;Profil</a></li>
                 </ul>
-                <button id="logoutButton" class="btn btn-danger">Abmelden</button>
+                <button id="logoutButton" class="btn btn-danger" style="display: none;">Abmelden</button>
             </div>
         </div>
     </nav>
     <script type="module">
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
             const profileLink = document.getElementById("profileLink");
+            const logoutButton = document.getElementById("logoutButton");
             if (user) {
                 profileLink.href = "Profil_eingelogt.html";
+                logoutButton.style.display = "block";
             } else {
                 profileLink.href = "Profil.html";
+                logoutButton.style.display = "none";
             }
         });
+
+        const logoutButton = document.getElementById("logoutButton");
+        if (logoutButton) {
+            logoutButton.addEventListener("click", async () => {
+                try {
+                    await signOut(auth);
+                    window.location.href = "Profil.html";
+                } catch (error) {
+                    alert("Fehler: " + error.message);
+                }
+            });
+        }
     </script>
 
     <nav id="nav2" class="navbar navbar-expand-lg bg-body-tertiary" style="display: none;">
