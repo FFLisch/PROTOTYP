@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         logoutButton.addEventListener('click', async () => {
             try {
                 await signOut(auth);
-                window.location.href = 'login.html'; // Redirect to login page
+                window.location.href = 'Profil.html'; // Redirect to login page
             } catch (error) {
                 alert('Fehler: ' + error.message);
             }
