@@ -15,23 +15,30 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
+let isLoggedIn = false;
+
 // Überprüfen, ob ein Benutzer angemeldet ist
 onAuthStateChanged(auth, async (user) => {
+  const profileLink = document.getElementById("profileLink");
   if (user) {
+    isLoggedIn = true;
     document.getElementById("profileContainer").style.display = "block";
     document.getElementById("registerContainer").style.display = "none";
     document.getElementById("loginContainer").style.display = "none";
     document.getElementById("logoutButton").style.display = "block";
+    profileLink.href = "Profil_eingelogt.html";
 
     const userDoc = await getDoc(doc(db, "users", user.uid));
     if (userDoc.exists()) {
       document.getElementById("profileUsername").value = userDoc.data().username;
     }
   } else {
+    isLoggedIn = false;
     document.getElementById("profileContainer").style.display = "none";
     document.getElementById("registerContainer").style.display = "block";
     document.getElementById("loginContainer").style.display = "block";
     document.getElementById("logoutButton").style.display = "none";
+    profileLink.href = "Profil.html";
   }
 });
 
@@ -50,6 +57,7 @@ if (registerForm) {
       await setDoc(doc(db, "users", user.uid), { email: user.email, username: username });
       await updateProfile(user, { displayName: username });
       alert("Registrierung erfolgreich!");
+      window.location.href = "Profil_eingelogt.html";
     } catch (error) {
       alert("Fehler: " + error.message);
     }
@@ -67,6 +75,7 @@ if (loginForm) {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       alert("Anmeldung erfolgreich!");
+      window.location.href = "Profil_eingelogt.html";
     } catch (error) {
       alert("Fehler: " + error.message);
     }

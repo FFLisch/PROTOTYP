@@ -48,7 +48,7 @@
 </head>
 
 <body>
-    <nav id="nav1" class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="font-family: monospace;">FFLischscanner</a>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,12 +59,25 @@
                     <li class="nav-item"><a class="nav-link" href="Home.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="Hinzufuegen.html"><i class="fa-solid fa-plus"></i>&nbsp;Hinzufügen</a></li>
                     <li class="nav-item"><a class="nav-link" href="Beobachtung.html"><i class="fa-solid fa-camera"></i>&nbsp;Beobachtungen</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="Rangliste.html"><i class="fa-solid fa-ranking-star"></i>&nbsp;Rangliste</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Profil.html"><i class="fa-solid fa-user"></i>&nbsp;Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Rangliste.html"><i class="fa-solid fa-ranking-star"></i>&nbsp;Rangliste</a></li>
+                    <li class="nav-item"><a class="nav-link" id="profileLink" href="Profil.html"><i class="fa-solid fa-user"></i>&nbsp;Profil</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <script type="module">
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+            const profileLink = document.getElementById("profileLink");
+            if (user) {
+                profileLink.href = "Profil_eingelogt.html";
+            } else {
+                profileLink.href = "Profil.html";
+            }
+        });
+    </script>
+
     <nav id="nav2" class="navbar navbar-expand-lg bg-body-tertiary" style="display: none;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="font-family: monospace;">FFLishscanner</a>
