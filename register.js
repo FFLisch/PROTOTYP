@@ -3,7 +3,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA...",
+  apiKey: "AIzaSyA_ZLxBxbMeOpANSrTllUlyYbYOK9PV6Qw",
   authDomain: "fflishscanner-7086b.firebaseapp.com",
   projectId: "fflishscanner-7086b",
   storageBucket: "fflishscanner-7086b.appspot.com",
@@ -21,6 +21,7 @@ onAuthStateChanged(auth, async (user) => {
     document.getElementById("profileContainer").style.display = "block";
     document.getElementById("registerContainer").style.display = "none";
     document.getElementById("loginContainer").style.display = "none";
+    document.getElementById("logoutButton").style.display = "block";
 
     const userDoc = await getDoc(doc(db, "users", user.uid));
     if (userDoc.exists()) {
@@ -30,6 +31,7 @@ onAuthStateChanged(auth, async (user) => {
     document.getElementById("profileContainer").style.display = "none";
     document.getElementById("registerContainer").style.display = "block";
     document.getElementById("loginContainer").style.display = "block";
+    document.getElementById("logoutButton").style.display = "none";
   }
 });
 
