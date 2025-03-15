@@ -77,6 +77,7 @@
                     <li class="nav-item"><a class="nav-link" href="Liste.html"><i class="fa-solid fa-list-ul"></i>&nbsp;Liste</a></li>
                     <li class="nav-item"><a class="nav-link" href="Admin.html"><i class="fa-solid fa-robot"></i>&nbsp;Admin</a></li>
                     <li class="nav-item"><a class="nav-link active" href="Profil.html"><i class="fa-solid fa-user"></i>&nbsp;Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" id="logoutButton" href="#"><i class="fa-solid fa-sign-out-alt"></i>&nbsp;Abmelden</a></li>
                 </ul>
             </div>
         </div>
@@ -169,6 +170,8 @@
             document.getElementById('profileContainer').style.display = 'block';
             document.getElementById('registerForm').style.display = 'none';
             document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('nav1').style.display = 'none';
+            document.getElementById('nav2').style.display = 'block';
             const user = JSON.parse(localStorage.getItem('user'));
             document.getElementById('profileUsername').value = user.username || '';
         }
@@ -180,6 +183,11 @@
             user.username = updatedUsername;
             localStorage.setItem('user', JSON.stringify(user));
             alert('Profile updated!');
+        });
+
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            localStorage.removeItem('user');
+            window.location.href = "Home.html";
         });
     </script>
 
