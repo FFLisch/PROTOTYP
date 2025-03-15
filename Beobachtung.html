@@ -439,27 +439,33 @@
     </script>
 
     <script>
-        // Check if the user is logged in
-        function checkLoginStatus() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            if (isLoggedIn === 'true') {
-                document.getElementById('logoutButton').style.display = 'block';
-            } else {
-                document.getElementById('logoutButton').style.display = 'none';
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if the user is logged in
+            function checkLoginStatus() {
+                const isLoggedIn = localStorage.getItem('isLoggedIn');
+                const logoutButton = document.getElementById('logoutButton');
+                if (isLoggedIn === 'true') {
+                    logoutButton.style.display = 'block';
+                } else {
+                    logoutButton.style.display = 'none';
+                }
             }
-        }
 
-        // Logout function
-        function logout() {
-            localStorage.removeItem('isLoggedIn');
-            window.location.href = 'login.html'; // Redirect to login page
-        }
+            // Logout function
+            function logout() {
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = 'login.html'; // Redirect to login page
+            }
 
-        // Add event listener to the logout button
-        document.getElementById('logoutButton').addEventListener('click', logout);
+            // Add event listener to the logout button
+            const logoutButton = document.getElementById('logoutButton');
+            if (logoutButton) {
+                logoutButton.addEventListener('click', logout);
+            }
 
-        // Check login status on page load
-        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+            // Check login status on page load
+            checkLoginStatus();
+        });
     </script>
 
 </body>
