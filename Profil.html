@@ -167,6 +167,8 @@
 
         if (localStorage.getItem('user')) {
             document.getElementById('profileContainer').style.display = 'block';
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'none';
             const user = JSON.parse(localStorage.getItem('user'));
             document.getElementById('profileUsername').value = user.username || '';
         }
