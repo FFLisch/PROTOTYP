@@ -108,7 +108,7 @@ if (logoutButton) {
   logoutButton.addEventListener("click", async () => {
     try {
       await signOut(auth);
-      window.location.href = "Home.html";
+      window.location.href = "Profil.html";
     } catch (error) {
       alert("Fehler: " + error.message);
     }
