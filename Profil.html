@@ -29,18 +29,7 @@
             object-fit: cover;
             margin-bottom: 15px;
         }
-        .navbar-nav {
-        flex-grow: 1;
-    }
-    .navbar-nav .nav-item {
-        margin-right: 10px;
-    }
-    .navbar-nav .nav-item:last-child {
-        margin-right: 0;
-    }
-    .navbar-nav .btn {
-        margin-left: auto;
-    }
+        
     </style>
 </head>
 <body>
@@ -190,7 +179,8 @@
             logoutButton.addEventListener("click", async () => {
                 try {
                     await signOut(auth);
-                    window.location.href = "Profil.html";
+                    localStorage.removeItem('isLoggedIn'); // Remove login status from localStorage
+                    window.location.href = "Profil.html"; // Redirect to login page
                 } catch (error) {
                     alert("Fehler: " + error.message);
                 }
