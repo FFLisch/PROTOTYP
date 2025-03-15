@@ -5,12 +5,12 @@ import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstati
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyA_ZLxBxbMeOpANSrTllUlyYbYOK9PV6Qw",
+  authDomain: "fflishscanner-7086b.firebaseapp.com",
+  projectId: "fflishscanner-7086b",
+  storageBucket: "fflishscanner-7086b.appspot.com",
+  messagingSenderId: "978052678468",
+  appId: "1:978052678468:web:5ad8fdf6b354a299bb8d11"
 };
 
 // Initialize Firebase
