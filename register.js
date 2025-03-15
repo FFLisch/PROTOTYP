@@ -114,3 +114,31 @@ if (logoutButton) {
     }
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const auth = getAuth();
+    const logoutButton = document.getElementById('logoutButton');
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            if (logoutButton) {
+                logoutButton.style.display = 'block';
+            }
+        } else {
+            if (logoutButton) {
+                logoutButton.style.display = 'none';
+            }
+        }
+    });
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                window.location.href = 'login.html'; // Redirect to login page
+            } catch (error) {
+                alert('Fehler: ' + error.message);
+            }
+        });
+    }
+});
