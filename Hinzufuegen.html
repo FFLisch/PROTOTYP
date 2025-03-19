@@ -31,51 +31,46 @@
         </div>
     </nav>
 
-    <br><h1 class="text-center" style="color: #0056b3;font-family: monospace;">Einsendeformular</h1>
+    <div class="container mt-4">
+        <h1 class="text-center" style="color: #0056b3;font-family: monospace;">Einsendeformular</h1>
 
-    <form id="fishForm">
-        <div class="required-field">
-            <button class="button" id="customFileButton" type="button">Foto auswählen</button>
-            <span id="fileNameDisplay">Kein Foto ausgewählt</span>
-            <input type="file" id="photoUpload" accept="image/*" style="display: none;">
-        </div>
+        <form id="fishForm" class="mt-4">
+            <div class="mb-3">
+                <label for="photoUpload" class="form-label">Foto hochladen</label>
+                <input type="file" class="form-control" id="photoUpload" accept="image/*">
+            </div>
 
-        <div id="map"></div>
-        <button class="button" type="button" id="locateButton">Standort automatisch ermitteln</button>
+            <div id="map" class="mb-3"></div>
+            <button class="btn btn-primary mb-3" type="button" id="locateButton">Standort automatisch ermitteln</button>
 
-        <!-- Neues Feld für die Anzahl der Fische -->
-        <div class="required-field">
-            <label for="fishCount">Anzahl der Fische:</label>
-            <input type="number" id="fishCount" class="form-control" value="1" min="1">
-        </div>
+            <div class="mb-3">
+                <label for="fishCount" class="form-label">Anzahl der Fische</label>
+                <input type="number" id="fishCount" class="form-control" value="1" min="1">
+            </div>
 
-        <textarea input type="text" id="fishSpecies" class="form-control" placeholder="Fischart"></textarea>
+            <div class="mb-3">
+                <label for="fishSpecies" class="form-label">Fischart</label>
+                <input type="text" id="fishSpecies" class="form-control" placeholder="Fischart">
+            </div>
 
-        <br><textarea id="fishDescription" class="form-control" placeholder="Beschreibe den Zustand des Fisches"></textarea>
+            <div class="mb-3">
+                <label for="fishDescription" class="form-label">Beschreibung</label>
+                <textarea id="fishDescription" class="form-control" placeholder="Beschreibe den Zustand des Fisches"></textarea>
+            </div>
 
-        <br><textarea id="environmentIssues" class="form-control" placeholder="Vorkommnisse in der Umgebung"></textarea>
+            <div class="mb-3">
+                <label for="environmentIssues" class="form-label">Vorkommnisse in der Umgebung</label>
+                <textarea id="environmentIssues" class="form-control" placeholder="Vorkommnisse in der Umgebung"></textarea>
+            </div>
 
-        <br><button class="sumit_button" type="submit">Einsenden</button>
-    </form>
+            <button class="btn btn-success w-100" type="submit">Einsenden</button>
+        </form>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script>
         const photoUpload = document.getElementById("photoUpload");
-        const customFileButton = document.getElementById("customFileButton");
-        const fileNameDisplay = document.getElementById("fileNameDisplay");
-
-        customFileButton.addEventListener("click", () => {
-            photoUpload.click();
-        });
-
-        photoUpload.addEventListener("change", () => {
-            if (photoUpload.files.length > 0) {
-                fileNameDisplay.textContent = photoUpload.files[0].name;
-            } else {
-                fileNameDisplay.textContent = "Kein Foto ausgewählt";
-            }
-        });
 
         const map = L.map('map').setView([49.42524, 8.68472], 12);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -115,14 +110,13 @@
             const photo = document.getElementById('photoUpload').files[0];
             const location = marker ? marker.getLatLng() : null;
             const time = new Date().toLocaleString();
-            const fishCount = document.getElementById('fishCount').value; // Anzahl der Fische
+            const fishCount = document.getElementById('fishCount').value;
 
             if (!photo || !location) {
                 alert('Bitte füllen Sie alle Pflichtfelder (Standort & Bild) aus.');
                 return;
             }
 
-            // Foto als Base64-Daten-URL speichern
             const reader = new FileReader();
             reader.onload = function (e) {
                 const fotoBase64 = e.target.result;
@@ -136,7 +130,7 @@
                     foto: fotoBase64,
                     standort: location,
                     zeit: time,
-                    fishCount // Anzahl der Fische hinzufügen
+                    fishCount
                 });
 
                 localStorage.setItem('einsendungen', JSON.stringify(einsendungen));
@@ -144,13 +138,12 @@
                 alert('Einsendung erfolgreich gespeichert!');
 
                 document.getElementById('fishForm').reset();
-                fileNameDisplay.textContent = "Kein Foto ausgewählt";
                 if (marker) {
                     map.removeLayer(marker);
                     marker = null;
                 }
             };
-            reader.readAsDataURL(photo); // Foto in Base64 konvertieren
+            reader.readAsDataURL(photo);
         });
     </script>
     <script type="module">
