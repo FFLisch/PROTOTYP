@@ -189,64 +189,6 @@ h1, h2 {
     margin-top: 20px;
 }
 
-/* Admin Page Styles */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input[type="range"] {
-    width: 100%;
-}
-
-.form-group input[type="number"] {
-    width: 100px;
-}
-
-#botSettings {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
-.image-preview {
-    width: 100%;
-    max-width: 300px;
-    margin: 20px auto;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.delete-button {
-    background: hsl(0, 84%, 58%);
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5vh;
-    border-radius: 15px;
-    padding: 20px;
-    border: 0;
-    margin-bottom: 20px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.delete-button:hover {
-    background: hsl(0, 63%, 50%);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-}
-
 /* Rangliste Page Styles */
 .rank-display {
     text-align: center;
