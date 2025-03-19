@@ -22,6 +22,7 @@ h1, h2 {
     text-align: center;
 }
 
+/* Navbar Styles */
 .navbar {
     background-color: #0056b3;
     padding: 10px;
@@ -67,6 +68,7 @@ h1, h2 {
     }
 }
 
+/* Button Styles */
 .btn {
     border-radius: 8px;
     padding: 10px 20px;
@@ -120,6 +122,7 @@ h1, h2 {
     background-color: #c23321;
 }
 
+/* Custom Button */
 .button {
     background: hsl(206, 84%, 58%);
     color: white;
@@ -141,6 +144,7 @@ h1, h2 {
     transform: translateY(-2px);
 }
 
+/* Content Box */
 .content-box {
     background-color: #ffffff;
     padding: 30px;
@@ -183,6 +187,7 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
+/* Form Styles */
 .form-label {
     font-weight: bold;
     color: #333;
@@ -341,6 +346,7 @@ h1, h2 {
     margin: 5px 0;
 }
 
+/* Switch Styles */
 .switch-container {
     display: flex;
     justify-content: center;
@@ -382,6 +388,7 @@ h1, h2 {
     color: black;
 }
 
+/* Filter Button */
 .filter-button {
     display: flex;
     align-items: center;
