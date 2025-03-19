@@ -1,0 +1,351 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef5fc;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #0056b3;
+    font-family: monospace;
+    text-align: center;
+}
+
+.navbar-nav {
+    flex-grow: 1;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+.navbar-nav .btn {
+    margin-left: auto;
+}
+
+/* Profile Styles */
+.profile-container, .register-container, .login-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Home Page Styles */
+.button {
+    background: hsl(206, 84%, 58%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    border-radius: 15px;
+    padding: 20px;
+    border: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.button:hover {
+    background: hsl(206, 63%, 50%);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.content-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin: 20px auto;
+}
+
+.content-box h2 {
+    color: hsl(206, 84%, 58%);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Map Styles */
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Admin Page Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="range"] {
+    width: 100%;
+}
+
+.form-group input[type="number"] {
+    width: 100px;
+}
+
+#botSettings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.image-preview {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-button {
+    background: hsl(0, 84%, 58%);
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    border-radius: 15px;
+    padding: 20px;
+    border: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background: hsl(0, 63%, 50%);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Rangliste Page Styles */
+.rank-display {
+    text-align: center;
+    font-size: 24px;
+    color: #0056b3;
+    font-weight: bold;
+}
+
+.rank-display img {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 20px;
+}
+
+.leaderboard {
+    margin-top: 20px;
+}
+
+/* Beobachtung Page Styles */
+.details-table {
+    display: none;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 20px;
+    table-layout: fixed;
+}
+
+.details-table th,
+.details-table td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 300px;
+}
+
+.details-table img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.list-view {
+    display: none;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.list-item .top-section {
+    display: flex;
+    align-items: center;
+}
+
+.list-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.list-item .details {
+    flex-grow: 1;
+    max-width: calc(100% - 120px);
+}
+
+.list-item .details h4 {
+    margin: 0;
+    font-size: 18px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.list-item .details p {
+    margin: 5px 0;
+    color: #666;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.list-item .arrow {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.list-item.expanded .arrow {
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.expanded-view {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.leaflet-popup-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 300px;
+}
+
+.leaflet-popup-content strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.leaflet-popup-content p {
+    margin: 5px 0;
+}
+
+.switch-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.switch-box {
+    width: 300px;
+    height: 50px;
+    border: 50px;
+    background: rgba(140, 244, 232, 0.7);
+    border-radius: 25px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-family: Arial, sans-serif;
+}
+
+.switch-btn {
+    width: 140px;
+    height: 40px;
+    background: rgb(14, 146, 186);
+    border-radius: 20px;
+    position: absolute;
+    left: 5px;
+    transition: left 0.3s;
+    opacity: 0.5;
+}
+
+.switch-box.active .switch-btn {
+    left: 155px;
+}
+
+.label {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.filter-button i {
+    margin-right: 10px;
+}
