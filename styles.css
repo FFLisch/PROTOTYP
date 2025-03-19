@@ -320,17 +320,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 20px;
 }
 
-.switch-box, .label {
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+.switch-box {
     width: 300px;
     height: 50px;
-    border: 50px;
     background: rgba(140, 244, 232, 0.7);
     border-radius: 25px;
     padding: 5px;
     display: flex;
     align-items: center;
     position: relative;
+    cursor: pointer;
 }
 
 .switch-btn {
@@ -353,6 +352,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-weight: bold;
     color: black;
+    font-family: 'Courier New', Courier, monospace; /* Unified font */
 }
 
 /* Filter Button */
