@@ -61,6 +61,7 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Anmelden</button>
         </form>
+        <button id="googleLoginButton" class="btn btn-danger w-100 mt-3"><i class="fa-brands fa-google"></i> Mit Google anmelden</button>
     </div>
 
     <div id="profileContainer" class="profile-container" style="display: none;">
@@ -81,7 +82,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script type="module">
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 
         const firebaseConfig = {
@@ -95,6 +96,7 @@
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
+        const provider = new GoogleAuthProvider();
 
         onAuthStateChanged(auth, (user) => {
             const profileLink = document.getElementById("profileLink");
@@ -142,6 +144,22 @@
                 try {
                     await signInWithEmailAndPassword(auth, email, password);
                     alert("Anmeldung erfolgreich!");
+                    // Set the login status in localStorage when the user logs in
+                    localStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = "Profil_eingelogt.html";
+                } catch (error) {
+                    alert("Fehler: " + error.message);
+                }
+            });
+        }
+
+        const googleLoginButton = document.getElementById("googleLoginButton");
+        if (googleLoginButton) {
+            googleLoginButton.addEventListener("click", async () => {
+                try {
+                    const result = await signInWithPopup(auth, provider);
+                    const user = result.user;
+                    alert("Anmeldung mit Google erfolgreich!");
                     // Set the login status in localStorage when the user logs in
                     localStorage.setItem('isLoggedIn', 'true');
                     window.location.href = "Profil_eingelogt.html";

@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -14,6 +14,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
+const provider = new GoogleAuthProvider();
 
 let isLoggedIn = false;
 
@@ -59,7 +60,11 @@ if (registerForm) {
       alert("Registrierung erfolgreich!");
       window.location.href = "Profil_eingelogt.html";
     } catch (error) {
-      alert("Fehler: " + error.message);
+      if (error.code === 'auth/email-already-in-use') {
+        alert("Diese E-Mail-Adresse wird bereits verwendet.");
+      } else {
+        alert("Fehler: " + error.message);
+      }
     }
   });
 }
@@ -77,6 +82,23 @@ if (loginForm) {
       // Set the login status in localStorage when the user logs in
       localStorage.setItem('isLoggedIn', 'true');
       alert("Anmeldung erfolgreich!");
+      window.location.href = "Profil_eingelogt.html";
+    } catch (error) {
+      alert("Fehler: " + error.message);
+    }
+  });
+}
+
+// Google Login
+const googleLoginButton = document.getElementById("googleLoginButton");
+if (googleLoginButton) {
+  googleLoginButton.addEventListener("click", async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      alert("Anmeldung mit Google erfolgreich!");
+      // Set the login status in localStorage when the user logs in
+      localStorage.setItem('isLoggedIn', 'true');
       window.location.href = "Profil_eingelogt.html";
     } catch (error) {
       alert("Fehler: " + error.message);
