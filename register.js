@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider, signInWithPopup, OAuthProvider } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -14,7 +14,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
+const appleProvider = new OAuthProvider('apple.com');
 
 let isLoggedIn = false;
 
@@ -94,9 +95,26 @@ const googleLoginButton = document.getElementById("googleLoginButton");
 if (googleLoginButton) {
   googleLoginButton.addEventListener("click", async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       alert("Anmeldung mit Google erfolgreich!");
+      // Set the login status in localStorage when the user logs in
+      localStorage.setItem('isLoggedIn', 'true');
+      window.location.href = "Profil_eingelogt.html";
+    } catch (error) {
+      alert("Fehler: " + error.message);
+    }
+  });
+}
+
+// Apple Login
+const appleLoginButton = document.getElementById("appleLoginButton");
+if (appleLoginButton) {
+  appleLoginButton.addEventListener("click", async () => {
+    try {
+      const result = await signInWithPopup(auth, appleProvider);
+      const user = result.user;
+      alert("Anmeldung mit Apple erfolgreich!");
       // Set the login status in localStorage when the user logs in
       localStorage.setItem('isLoggedIn', 'true');
       window.location.href = "Profil_eingelogt.html";
