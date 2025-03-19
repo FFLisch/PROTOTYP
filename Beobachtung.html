@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="font-family: monospace;">FFLischscanner</a>
+            <a class="navbar-brand" href="#">FFLischscanner</a>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,19 +30,16 @@
             </div>
         </div>
     </nav>
-    <h1 class="text-center my-5" style="color: #0056b3; font-family: monospace;">Beobachtungen</h1>
+    <h1 class="text-center my-5">Beobachtungen</h1>
     <div class="container">
         <!-- Schalter für Karte/Liste -->
-        <div class="switch-container">
-            <div class="switch-box" id="toggleSwitch" onclick="toggleView()">
-                <div class="label"><i class="fa-solid fa-location-dot"></i> Karte</div>
-                <div class="switch-btn"></div>
-                <div class="label"><i class="fa-solid fa-list"></i> Liste</div>
-            </div>
+        <div class="d-flex justify-content-center mb-4">
+            <button id="mapButton" class="btn btn-outline-primary me-2 active" onclick="showMap()">Karte</button>
+            <button id="listButton" class="btn btn-outline-primary" onclick="showList()">Liste</button>
         </div>
 
         <!-- Filter-Button (nur in der Listenansicht sichtbar) -->
-        <br><div class="filter-button" id="filterButton" onclick="toggleFilter()" style="display: none;">
+        <div class="filter-button" id="filterButton" onclick="toggleFilter()" style="display: none;">
             <i class="fa-solid fa-filter"></i> Filter: Neueste zuerst
         </div>
 
@@ -206,6 +203,10 @@
                 listItem.appendChild(expandedView);
                 listContainer.appendChild(listItem);
             });
+
+            // Update button states
+            document.getElementById('mapButton').classList.remove('active');
+            document.getElementById('listButton').classList.add('active');
         }
 
         // Karte anzeigen
@@ -214,6 +215,10 @@
             document.querySelector('.list-view').style.display = 'none';
             document.querySelector('.details-table').style.display = 'none'; // Details-Ansicht schließen
             document.getElementById('filterButton').style.display = 'none'; // Filter-Button ausblenden
+
+            // Update button states
+            document.getElementById('mapButton').classList.add('active');
+            document.getElementById('listButton').classList.remove('active');
         }
 
         // Umschalter für Karte/Liste
