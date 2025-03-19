@@ -29,7 +29,7 @@
         </div>
     </nav>
 
-    <div id="registerContainer" class="register-container">
+    <div id="registerContainer" class="register-container" style="display: none;">
         <h2>Registrieren</h2>
         <form id="registerForm">
             <div class="mb-3">
@@ -45,6 +45,7 @@
                 <input type="password" class="form-control" id="registerPassword" required>
             </div>
             <button type="submit" class="btn btn-primary w-100">Registrieren</button>
+            <button type="button" class="btn btn-link w-100 mt-2" id="showLoginButton">Bereits ein Konto? Anmelden</button>
         </form>
     </div>
 
@@ -60,9 +61,10 @@
                 <input type="password" class="form-control" id="loginPassword" required>
             </div>
             <button type="submit" class="btn btn-primary w-100">Anmelden</button>
+            <button id="googleLoginButton" class="btn btn-danger w-100 mt-3"><i class="fa-brands fa-google"></i> Mit Google anmelden</button>
+            <button id="appleLoginButton" class="btn btn-dark w-100 mt-3"><i class="fa-brands fa-apple"></i> Mit Apple anmelden</button>
+            <button type="button" class="btn btn-link w-100 mt-2" id="showRegisterButton">Noch kein Konto? Registrieren</button>
         </form>
-        <button id="googleLoginButton" class="btn btn-danger w-100 mt-3"><i class="fa-brands fa-google"></i> Mit Google anmelden</button>
-        <button id="appleLoginButton" class="btn btn-dark w-100 mt-3"><i class="fa-brands fa-apple"></i> Mit Apple anmelden</button>
     </div>
 
     <div id="profileContainer" class="profile-container" style="display: none;">
@@ -113,7 +115,7 @@
                 profileLink.href = "Profil.html";
                 logoutButton.style.display = "none";
                 document.getElementById("profileContainer").style.display = "none";
-                document.getElementById("registerContainer").style.display = "block";
+                document.getElementById("registerContainer").style.display = "none";
                 document.getElementById("loginContainer").style.display = "block";
             }
         });
@@ -197,6 +199,24 @@
                 } catch (error) {
                     alert("Fehler: " + error.message);
                 }
+            });
+        }
+
+        // Toggle between login and register forms
+        const showRegisterButton = document.getElementById("showRegisterButton");
+        const showLoginButton = document.getElementById("showLoginButton");
+
+        if (showRegisterButton) {
+            showRegisterButton.addEventListener("click", () => {
+                document.getElementById("loginContainer").style.display = "none";
+                document.getElementById("registerContainer").style.display = "block";
+            });
+        }
+
+        if (showLoginButton) {
+            showLoginButton.addEventListener("click", () => {
+                document.getElementById("registerContainer").style.display = "none";
+                document.getElementById("loginContainer").style.display = "block";
             });
         }
     </script>

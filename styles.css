@@ -3,6 +3,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #eef5fc;
     color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -14,14 +16,20 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1, h2 {
     color: #0056b3;
-    font-family: monospace;
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
 
-.navbar-nav {
-    flex-grow: 1;
+.navbar {
+    background-color: #0056b3;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
 }
 
 .navbar-nav .nav-item {
@@ -32,8 +40,107 @@ h1 {
     margin-right: 0;
 }
 
+.navbar-nav .nav-link {
+    color: #fff;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d1ecf1;
+}
+
 .navbar-nav .btn {
     margin-left: auto;
+}
+
+.btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #004494;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    border: none;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+}
+
+.btn-dark {
+    background-color: #333;
+    border: none;
+    color: #fff;
+}
+
+.btn-dark:hover {
+    background-color: #222;
+}
+
+.btn-google {
+    background-color: #db4437;
+    border: none;
+    color: #fff;
+}
+
+.btn-google:hover {
+    background-color: #c23321;
+}
+
+.button {
+    background: hsl(206, 84%, 58%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    border-radius: 15px;
+    padding: 20px;
+    border: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.button:hover {
+    background: hsl(206, 63%, 50%);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.content-box {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin: 20px auto;
+}
+
+.content-box h2 {
+    color: hsl(206, 84%, 58%);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    margin-bottom: 15px;
 }
 
 /* Profile Styles */
@@ -72,104 +179,6 @@ h1 {
     padding: 10px;
     margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary {
-    background-color: #0056b3;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #004494;
-}
-
-.btn-danger {
-    background-color: #d9534f;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-.btn-danger:hover {
-    background-color: #c9302c;
-}
-
-.btn-dark {
-    background-color: #333;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-.btn-dark:hover {
-    background-color: #222;
-}
-
-.btn-google {
-    background-color: #db4437;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-.btn-google:hover {
-    background-color: #c23321;
-}
-
-/* Home Page Styles */
-.button {
-    background: hsl(206, 84%, 58%);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5vh;
-    border-radius: 15px;
-    padding: 20px;
-    border: 0;
-    margin-bottom: 20px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.button:hover {
-    background: hsl(206, 63%, 50%);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-}
-
-.content-box {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    margin: 20px auto;
-}
-
-.content-box h2 {
-    color: hsl(206, 84%, 58%);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5em;
-    margin-bottom: 15px;
 }
 
 /* Map Styles */
