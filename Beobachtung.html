@@ -34,8 +34,13 @@
     <div class="container">
         <!-- Schalter für Karte/Liste -->
         <div class="d-flex justify-content-center mb-4">
-            <button id="mapButton" class="btn btn-outline-primary me-2 active" onclick="showMap()">Karte</button>
-            <button id="listButton" class="btn btn-outline-primary" onclick="showList()">Liste</button>
+            <div class="switch-container">
+                <div class="switch-box" id="toggleSwitch" onclick="toggleView()">
+                    <div class="switch-btn"></div>
+                </div>
+                <div class="label">Karte</div>
+                <div class="label">Liste</div>
+            </div>
         </div>
 
         <!-- Filter-Button (nur in der Listenansicht sichtbar) -->
