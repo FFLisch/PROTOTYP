@@ -10,21 +10,21 @@
     <script type="module" src="register.js" defer></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #0056b3; padding: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="font-family: monospace; color: #fff; font-size: 1.5rem; font-weight: bold;">FFLischscanner</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border: none;">
+            <a class="navbar-brand" href="#" style="font-family: monospace;">FFLischscanner</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="Home.html" style="color: white; font-size: 1.2rem;"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Hinzufuegen.html" style="color: white; font-size: 1.2rem;"><i class="fa-solid fa-plus"></i>&nbsp;Hinzufügen</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Beobachtung.html" style="color: white; font-size: 1.2rem;"><i class="fa-solid fa-camera"></i>&nbsp;Beobachtungen</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Rangliste.html" style="color: white; font-size: 1.2rem;"><i class="fa-solid fa-ranking-star"></i>&nbsp;Rangliste</a></li>
-                    <li class="nav-item"><a class="nav-link" id="profileLink" href="Profil.html" style="color: white; font-size: 1.2rem;"><i class="fa-solid fa-user"></i>&nbsp;Profil</a></li>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="Home.html"><i class="fa-solid fa-house"></i>&nbsp;Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Hinzufuegen.html"><i class="fa-solid fa-plus"></i>&nbsp;Hinzufügen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Beobachtung.html"><i class="fa-solid fa-camera"></i>&nbsp;Beobachtungen</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Rangliste.html"><i class="fa-solid fa-ranking-star"></i>&nbsp;Rangliste</a></li>
+                    <li class="nav-item"><a class="nav-link" id="profileLink" href="Profil.html"><i class="fa-solid fa-user"></i>&nbsp;Profil</a></li>
+                    <button id="logoutButton" class="btn btn-danger" style="display: none;">Abmelden</button>
                 </ul>
-                <button id="logoutButton" class="btn btn-danger ms-3" style="display: none;">Abmelden</button>
             </div>
         </div>
     </nav>
