@@ -313,6 +313,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 5px 0;
 }
 
+/* Switch Styles */
 .switch-container {
     display: flex;
     justify-content: center;
@@ -327,23 +328,25 @@ h1, h2, h3, h4, h5, h6 {
 .switch-label {
     position: relative;
     display: inline-flex;
-    width: 180px;
-    height: 40px;
+    width: 200px; /* Increased width */
+    height: 50px; /* Increased height */
+    margin: 0 10px;
     cursor: pointer;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+    background-color: transparent; /* Transparent background */
+    border-radius: 25px; /* Adjusted border-radius */
     transition: background-color 0.3s;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px; /* Adjusted font-size */
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Border to make it visible */
 }
 
 .switch-inner {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 0 15px;
+    padding: 0 20px;
     color: black;
     pointer-events: none;
 }
@@ -355,18 +358,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .switch-switch {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 34px;
-    height: 34px;
-    background-color: white;
-    border-radius: 50%;
+    top: 5px;
+    left: 5px;
+    width: 40px; /* Adjusted width */
+    height: 40px; /* Adjusted height */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px; /* Adjusted border-radius */
     transition: transform 0.3s;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .switch-input:checked + .switch-label .switch-switch {
-    transform: translateX(140px);
+    transform: translateX(150px); /* Adjusted translateX */
 }
 
 /* Filter Button */
