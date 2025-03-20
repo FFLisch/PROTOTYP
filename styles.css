@@ -328,8 +328,8 @@ h1, h2, h3, h4, h5, h6 {
 .switch-label {
     position: relative;
     display: inline-block;
-    width: 200px; /* Increased width */
-    height: 50px; /* Increased height */
+    width: 100px;
+    height: 50px;
     margin: 0 10px;
     cursor: pointer;
 }
@@ -340,17 +340,17 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1); /* Transparent background */
-    border-radius: 25px; /* Adjusted border radius */
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
     transition: background-color 0.3s;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Adjusted padding */
+    padding: 0 20px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    color: black; /* Text color */
-    font-size: 18px; /* Increased font size */
+    color: black;
+    font-size: 18px;
 }
 
 .switch-label .switch-text {
@@ -359,27 +359,19 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
 }
 
-.switch-label .map-text {
-    left: 10px;
-}
-
-.switch-label .list-text {
-    right: 10px;
-}
-
 .switch-label .switch-switch {
     position: absolute;
-    top: 5px; /* Adjusted position */
-    left: 5px; /* Adjusted position */
-    width: 90px; /* Increased width */
-    height: 40px; /* Increased height */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    border-radius: 20px; /* Adjusted border radius */
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
     transition: transform 0.3s;
 }
 
 .switch-input:checked + .switch-label .switch-switch {
-    transform: translateX(100px); /* Adjusted translation */
+    transform: translateX(50px);
 }
 
 /* Filter Button */
