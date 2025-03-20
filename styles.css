@@ -313,7 +313,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 5px 0;
 }
 
-/* Switch Styles */
 .switch-container {
     display: flex;
     justify-content: center;
@@ -327,52 +326,47 @@ h1, h2, h3, h4, h5, h6 {
 
 .switch-label {
     position: relative;
-    display: inline-block;
-    width: 200px; /* Increased width */
-    height: 40px; /* Lower height */
-    margin: 0 10px;
+    display: inline-flex;
+    width: 180px;
+    height: 40px;
     cursor: pointer;
-}
-
-.switch-label .switch-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 20px; /* Adjusted border-radius */
-    transition: background-color 0.3s;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: background-color 0.3s;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    color: black;
-    font-size: 18px; /* Adjusted font-size */
+    font-size: 16px;
 }
 
-.switch-label .switch-text {
-    width: 50%;
-    text-align: center;
+.switch-inner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 15px;
+    color: black;
     pointer-events: none;
 }
 
-.switch-label .switch-switch {
+.switch-text {
+    flex: 1;
+    text-align: center;
+}
+
+.switch-switch {
     position: absolute;
     top: 3px;
     left: 3px;
-    width: 34px; /* Adjusted width */
-    height: 34px; /* Adjusted height */
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 17px; /* Adjusted border-radius */
+    width: 34px;
+    height: 34px;
+    background-color: white;
+    border-radius: 50%;
     transition: transform 0.3s;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .switch-input:checked + .switch-label .switch-switch {
-    transform: translateX(160px); /* Adjusted translateX */
+    transform: translateX(140px);
 }
 
 /* Filter Button */
