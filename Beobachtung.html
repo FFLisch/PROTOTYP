@@ -33,15 +33,17 @@
     <h1 class="text-center my-5">Beobachtungen</h1>
     <div class="container">
         <!-- Schalter für Karte/Liste -->
-        <div class="d-flex justify-content-center mb-4">
-            <div class="switch-container">
-                <div class="switch-box" id="toggleSwitch" onclick="toggleView()">
-                    <div class="switch-btn"></div>
-                </div>
-                <div class="label">Karte</div>
-                <div class="label">Liste</div>
-            </div>
+    <div class="d-flex justify-content-center mb-4">
+    <div class="switch-container">
+            <input type="checkbox" id="toggleSwitch" class="switch-input" onclick="toggleView()">
+            <label for="toggleSwitch" class="switch-label">
+                <span class="switch-inner"></span>
+                <span class="switch-switch"></span>
+            </label>
+            <div class="label">Karte</div>
+            <div class="label">Liste</div>
         </div>
+    </div>
 
         <!-- Filter-Button (nur in der Listenansicht sichtbar) -->
         <div class="filter-button" id="filterButton" onclick="toggleFilter()" style="display: none;">
@@ -229,9 +231,7 @@
         // Umschalter für Karte/Liste
         function toggleView() {
             const switchBox = document.getElementById("toggleSwitch");
-            switchBox.classList.toggle("active");
-
-            if (switchBox.classList.contains("active")) {
+            if (switchBox.checked) {
                 showList();
             } else {
                 showMap();

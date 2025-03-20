@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+    font-family: 'Roboto', sans-serif; /* Unified font */
     background-color: #eef5fc;
     color: #333;
     margin: 0;
@@ -9,7 +9,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: #0056b3;
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+    font-family: 'Roboto', sans-serif; /* Unified font */
     text-align: center;
     margin-bottom: 20px;
 }
@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Button Styles */
 .btn, .button {
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+    font-family: 'Roboto', sans-serif; /* Unified font */
     border-radius: 8px;
     padding: 10px 20px;
     font-size: 16px;
@@ -125,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .content-box h2 {
     color: hsl(206, 84%, 58%);
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+    font-family: 'Roboto', sans-serif; /* Unified font */
     font-size: 1.5em;
     margin-bottom: 15px;
 }
@@ -152,13 +152,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .profile-container h2, .register-container h2, .login-container h2 {
     color: #0056b3;
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+    font-family: 'Roboto', sans-serif; /* Unified font */
     margin-bottom: 20px;
 }
 
 /* Form Styles */
 .form-label, .form-control {
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+    font-family: 'Roboto', sans-serif; /* Unified font */
     font-weight: bold;
     color: #333;
     border-radius: 8px;
@@ -318,6 +318,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    align-items: center;
 }
 
 .switch-box {
@@ -352,12 +353,55 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-weight: bold;
     color: black;
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+    font-family: 'Roboto', sans-serif; /* Unified font */
+    margin: 0 10px;
+}
+
+.switch-input {
+    display: none;
+}
+
+.switch-label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin: 0 10px;
+}
+
+.switch-label .switch-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: background-color 0.3s;
+}
+
+.switch-label .switch-switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.switch-input:checked + .switch-label .switch-inner {
+    background-color: #4caf50;
+}
+
+.switch-input:checked + .switch-label .switch-switch {
+    transform: translateX(26px);
 }
 
 /* Filter Button */
 .filter-button, .btn-link {
-    font-family: 'Courier New', Courier, monospace; /* Unified font */
+    font-family: 'Roboto', sans-serif; /* Unified font */
     display: flex;
     align-items: center;
     justify-content: center;
