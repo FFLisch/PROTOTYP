@@ -328,8 +328,8 @@ h1, h2, h3, h4, h5, h6 {
 .switch-label {
     position: relative;
     display: inline-block;
-    width: 100px;
-    height: 50px;
+    width: 120px;
+    height: 60px;
     margin: 0 10px;
     cursor: pointer;
 }
@@ -341,7 +341,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 25px;
+    border-radius: 30px;
     transition: background-color 0.3s;
     display: flex;
     justify-content: space-between;
@@ -363,15 +363,16 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 5px;
     left: 5px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
+    border-radius: 25px;
     transition: transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .switch-input:checked + .switch-label .switch-switch {
-    transform: translateX(50px);
+    transform: translateX(60px);
 }
 
 /* Filter Button */
