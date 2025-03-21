@@ -64,7 +64,7 @@ if (registerForm) {
       if (error.code === 'auth/email-already-in-use') {
         alert("Diese E-Mail-Adresse wird bereits verwendet.");
       } else {
-        alert("Fehler: " + error.message);
+        alert(`Fehler bei der Registrierung: ${error.message} (Code: ${error.code})`);
       }
     }
   });
@@ -85,7 +85,7 @@ if (loginForm) {
       alert("Anmeldung erfolgreich!");
       window.location.href = "Profil_eingelogt.html";
     } catch (error) {
-      alert("Fehler: " + error.message);
+      alert(`Fehler bei der Anmeldung: ${error.message} (Code: ${error.code})`);
     }
   });
 }
@@ -102,7 +102,7 @@ if (googleLoginButton) {
       localStorage.setItem('isLoggedIn', 'true');
       window.location.href = "Profil_eingelogt.html";
     } catch (error) {
-      alert("Fehler: " + error.message);
+      alert(`Fehler bei der Google-Anmeldung: ${error.message} (Code: ${error.code})`);
     }
   });
 }
@@ -124,7 +124,7 @@ if (appleLoginButton) {
       } else if (error.code === 'auth/cancelled-popup-request') {
         alert("Ein anderer Anmelde-Popup wurde bereits geöffnet.");
       } else {
-        alert("Fehler: " + error.message);
+        alert(`Fehler bei der Apple-Anmeldung: ${error.message} (Code: ${error.code})`);
       }
     }
   });
@@ -144,7 +144,7 @@ if (profileForm) {
         await updateProfile(user, { displayName: newUsername });
         alert("Profil aktualisiert!");
       } catch (error) {
-        alert("Fehler: " + error.message);
+        alert(`Fehler beim Aktualisieren des Profils: ${error.message} (Code: ${error.code})`);
       }
     }
   });
@@ -159,7 +159,7 @@ if (logoutButton) {
       localStorage.removeItem('isLoggedIn'); // Remove login status from localStorage
       window.location.href = "Profil.html"; // Redirect to login page
     } catch (error) {
-      alert("Fehler: " + error.message);
+      alert(`Fehler beim Abmelden: ${error.message} (Code: ${error.code})`);
     }
   });
 }
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 await signOut(auth);
                 window.location.href = 'Profil.html'; // Redirect to login page
             } catch (error) {
-                alert('Fehler: ' + error.message);
+                alert(`Fehler beim Abmelden: ${error.message} (Code: ${error.code})`);
             }
         });
     }
