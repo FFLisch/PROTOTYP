@@ -119,7 +119,13 @@ if (appleLoginButton) {
       localStorage.setItem('isLoggedIn', 'true');
       window.location.href = "Profil_eingelogt.html";
     } catch (error) {
-      alert("Fehler: " + error.message);
+      if (error.code === 'auth/popup-closed-by-user') {
+        alert("Der Anmelde-Popup wurde geschlossen, bevor die Anmeldung abgeschlossen wurde.");
+      } else if (error.code === 'auth/cancelled-popup-request') {
+        alert("Ein anderer Anmelde-Popup wurde bereits geöffnet.");
+      } else {
+        alert("Fehler: " + error.message);
+      }
     }
   });
 }
