@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider, signInWithPopup, OAuthProvider } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -15,7 +15,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 const googleProvider = new GoogleAuthProvider();
-const appleProvider = new OAuthProvider('apple.com');
+const facebookProvider = new FacebookAuthProvider();
 
 let isLoggedIn = false;
 
@@ -107,25 +107,19 @@ if (googleLoginButton) {
   });
 }
 
-// Apple Login
-const appleLoginButton = document.getElementById("appleLoginButton");
-if (appleLoginButton) {
-  appleLoginButton.addEventListener("click", async () => {
+// Facebook Login
+const facebookLoginButton = document.getElementById("facebookLoginButton");
+if (facebookLoginButton) {
+  facebookLoginButton.addEventListener("click", async () => {
     try {
-      const result = await signInWithPopup(auth, appleProvider);
+      const result = await signInWithPopup(auth, facebookProvider);
       const user = result.user;
-      alert("Anmeldung mit Apple erfolgreich!");
+      alert("Anmeldung mit Facebook erfolgreich!");
       // Set the login status in localStorage when the user logs in
       localStorage.setItem('isLoggedIn', 'true');
       window.location.href = "Profil_eingelogt.html";
     } catch (error) {
-      if (error.code === 'auth/popup-closed-by-user') {
-        alert("Der Anmelde-Popup wurde geschlossen, bevor die Anmeldung abgeschlossen wurde.");
-      } else if (error.code === 'auth/cancelled-popup-request') {
-        alert("Ein anderer Anmelde-Popup wurde bereits geöffnet.");
-      } else {
-        alert(`Fehler bei der Apple-Anmeldung: ${error.message} (Code: ${error.code})`);
-      }
+      alert(`Fehler bei der Facebook-Anmeldung: ${error.message} (Code: ${error.code})`);
     }
   });
 }

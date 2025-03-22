@@ -62,7 +62,7 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Anmelden</button>
             <button id="googleLoginButton" class="btn btn-danger w-100 mt-3"><i class="fa-brands fa-google"></i> Mit Google anmelden</button>
-            <button id="appleLoginButton" class="btn btn-dark w-100 mt-3"><i class="fa-brands fa-apple"></i> Mit Apple anmelden</button>
+            <button id="facebookLoginButton" class="btn btn-primary w-100 mt-3"><i class="fa-brands fa-facebook"></i> Mit Facebook anmelden</button>
             <button type="button" class="btn btn-link w-100 mt-2" id="showRegisterButton">Noch kein Konto? Registrieren</button>
         </form>
     </div>
@@ -85,7 +85,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script type="module">
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, OAuthProvider } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
 
         const firebaseConfig = {
@@ -100,7 +100,7 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
         const googleProvider = new GoogleAuthProvider();
-        const appleProvider = new OAuthProvider('apple.com');
+        const facebookProvider = new FacebookAuthProvider();
 
         onAuthStateChanged(auth, (user) => {
             const profileLink = document.getElementById("profileLink");
@@ -173,24 +173,18 @@
             });
         }
 
-        const appleLoginButton = document.getElementById("appleLoginButton");
-        if (appleLoginButton) {
-            appleLoginButton.addEventListener("click", async () => {
+        const facebookLoginButton = document.getElementById("facebookLoginButton");
+        if (facebookLoginButton) {
+            facebookLoginButton.addEventListener("click", async () => {
                 try {
-                    const result = await signInWithPopup(auth, appleProvider);
+                    const result = await signInWithPopup(auth, facebookProvider);
                     const user = result.user;
-                    alert("Anmeldung mit Apple erfolgreich!");
+                    alert("Anmeldung mit Facebook erfolgreich!");
                     // Set the login status in localStorage when the user logs in
                     localStorage.setItem('isLoggedIn', 'true');
                     window.location.href = "Profil_eingelogt.html";
                 } catch (error) {
-                    if (error.code === 'auth/popup-closed-by-user') {
-                        alert("Der Anmelde-Popup wurde geschlossen, bevor die Anmeldung abgeschlossen wurde.");
-                    } else if (error.code === 'auth/cancelled-popup-request') {
-                        alert("Ein anderer Anmelde-Popup wurde bereits geöffnet.");
-                    } else {
-                        alert("Fehler: " + error.message);
-                    }
+                    alert("Fehler: " + error.message);
                 }
             });
         }
