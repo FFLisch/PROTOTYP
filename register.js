@@ -2,8 +2,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebas
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
+// Access the environment variable
+const appSecret = process.env.APP_SECRET;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyA_ZLxBxbMeOpANSrTllUlyYbYOK9PV6Qw",
+  apiKey: APP_SECRET, // Use the environment variable here
   authDomain: "fflishscanner-7086b.firebaseapp.com",
   projectId: "fflishscanner-7086b",
   storageBucket: "fflishscanner-7086b.appspot.com",
@@ -173,15 +176,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-
-    if (logoutButton) {
-        logoutButton.addEventListener('click', async () => {
-            try {
-                await signOut(auth);
-                window.location.href = 'Profil.html'; // Redirect to login page
-            } catch (error) {
-                alert(`Fehler beim Abmelden: ${error.message} (Code: ${error.code})`);
-            }
-        });
-    }
 });
