@@ -6,7 +6,7 @@ import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstati
 const appSecret = process.env.APP_SECRET;
 
 const firebaseConfig = {
-  apiKey: APP_SECRET, // Use the environment variable here
+  apiKey: appSecret, // Use the environment variable here
   authDomain: "fflishscanner-7086b.firebaseapp.com",
   projectId: "fflishscanner-7086b",
   storageBucket: "fflishscanner-7086b.appspot.com",

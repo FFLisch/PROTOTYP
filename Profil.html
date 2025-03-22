@@ -62,7 +62,6 @@
             </div>
             <button type="submit" class="btn btn-primary w-100">Anmelden</button>
             <button id="googleLoginButton" class="btn btn-danger w-100 mt-3"><i class="fa-brands fa-google"></i> Mit Google anmelden</button>
-            <button id="facebookLoginButton" class="btn btn-primary w-100 mt-3"><i class="fa-brands fa-facebook"></i> Mit Facebook anmelden</button>
             <button type="button" class="btn btn-link w-100 mt-2" id="showRegisterButton">Noch kein Konto? Registrieren</button>
         </form>
     </div>
@@ -100,7 +99,6 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
         const googleProvider = new GoogleAuthProvider();
-        const facebookProvider = new FacebookAuthProvider();
 
         onAuthStateChanged(auth, (user) => {
             const profileLink = document.getElementById("profileLink");
@@ -148,7 +146,6 @@
                 try {
                     await signInWithEmailAndPassword(auth, email, password);
                     alert("Anmeldung erfolgreich!");
-                    // Set the login status in localStorage when the user logs in
                     localStorage.setItem('isLoggedIn', 'true');
                     window.location.href = "Profil_eingelogt.html";
                 } catch (error) {
@@ -164,22 +161,6 @@
                     const result = await signInWithPopup(auth, googleProvider);
                     const user = result.user;
                     alert("Anmeldung mit Google erfolgreich!");
-                    // Set the login status in localStorage when the user logs in
-                    localStorage.setItem('isLoggedIn', 'true');
-                    window.location.href = "Profil_eingelogt.html";
-                } catch (error) {
-                    alert("Fehler: " + error.message);
-                }
-            });
-        }
-
-        const facebookLoginButton = document.getElementById("facebookLoginButton");
-        if (facebookLoginButton) {
-            facebookLoginButton.addEventListener("click", async () => {
-                try {
-                    const result = await signInWithPopup(auth, facebookProvider);
-                    const user = result.user;
-                    alert("Anmeldung mit Facebook erfolgreich!");
                     // Set the login status in localStorage when the user logs in
                     localStorage.setItem('isLoggedIn', 'true');
                     window.location.href = "Profil_eingelogt.html";
