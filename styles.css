@@ -397,3 +397,67 @@ h1, h2, h3, h4, h5, h6 {
     color: #004494;
     text-decoration: underline;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .content-box {
+        padding: 15px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2em;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9em;
+    }
+
+    .btn, .button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .profile-container, .register-container, .login-container {
+        padding: 15px;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .details-table th, .details-table td {
+        font-size: 0.9em;
+    }
+
+    .list-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .list-item .details h4 {
+        font-size: 16px;
+    }
+
+    .list-item .details p {
+        font-size: 14px;
+    }
+
+    .switch-label {
+        width: 150px;
+        height: 40px;
+    }
+
+    .switch-switch {
+        width: 30px;
+        height: 30px;
+    }
+
+    .switch-input:checked + .switch-label .switch-switch {
+        transform: translateX(110px);
+    }
+}
