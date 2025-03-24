@@ -460,4 +460,26 @@ h1, h2, h3, h4, h5, h6 {
     .switch-input:checked + .switch-label .switch-switch {
         transform: translateX(110px);
     }
+
+    /* Rangliste Page Styles */
+    .rank-display {
+        font-size: 20px;
+    }
+
+    .rank-display img {
+        width: 150px;
+        height: auto;
+    }
+
+    .progress {
+        height: 15px;
+    }
+
+    .leaderboard h2 {
+        font-size: 1.5em;
+    }
+
+    .leaderboard .list-group-item {
+        font-size: 0.9em;
+    }
 }
