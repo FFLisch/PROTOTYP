@@ -25,12 +25,10 @@ let isLoggedIn = false;
 // Überprüfen, ob ein Benutzer angemeldet ist
 onAuthStateChanged(auth, async (user) => {
   const profileLink = document.getElementById("profileLink");
+  const logoutButton = document.getElementById("logoutButton");
   if (user) {
     isLoggedIn = true;
-    document.getElementById("profileContainer").style.display = "block";
-    document.getElementById("registerContainer").style.display = "none";
-    document.getElementById("loginContainer").style.display = "none";
-    document.getElementById("logoutButton").style.display = "block";
+    logoutButton.style.display = "block";
     profileLink.href = "Profil_eingelogt.html";
 
     const userDoc = await getDoc(doc(db, "users", user.uid));
@@ -39,10 +37,7 @@ onAuthStateChanged(auth, async (user) => {
     }
   } else {
     isLoggedIn = false;
-    document.getElementById("profileContainer").style.display = "none";
-    document.getElementById("registerContainer").style.display = "block";
-    document.getElementById("loginContainer").style.display = "block";
-    document.getElementById("logoutButton").style.display = "none";
+    logoutButton.style.display = "none";
     profileLink.href = "Profil.html";
   }
 });
