@@ -35,9 +35,9 @@
         
         <div class="profile-container">
             <img src="profile.jpg" alt="Profilbild" class="profile-image">
-            <h2>Benutzername</h2>
-            <p>Email: benutzer@example.com</p>
-            <button class="btn btn-primary">Profil bearbeiten</button>
+            <h2 id="profileUsernameDisplay">Benutzername</h2>
+            <p id="profileEmailDisplay">Email: benutzer@example.com</p>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Profil bearbeiten</button>
         </div>
         
         <div class="content-box">
@@ -48,6 +48,27 @@
                 <li class="list-group-item">Beobachtung 3</li>
                 <!-- Add more observations as needed -->
             </ul>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProfileModalLabel">Profil bearbeiten</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="profileForm">
+                        <div class="mb-3">
+                            <label for="profileUsername" class="form-label">Benutzername</label>
+                            <input type="text" class="form-control" id="profileUsername" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Speichern</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
 // Access the environment variable
@@ -18,7 +18,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
 
 let isLoggedIn = false;
 
@@ -34,6 +33,8 @@ onAuthStateChanged(auth, async (user) => {
     const userDoc = await getDoc(doc(db, "users", user.uid));
     if (userDoc.exists()) {
       document.getElementById("profileUsername").value = userDoc.data().username;
+      document.getElementById("profileEmailDisplay").textContent = `Email: ${user.email}`;
+      document.getElementById("profileUsernameDisplay").textContent = user.displayName;
     }
   } else {
     isLoggedIn = false;
@@ -105,23 +106,6 @@ if (googleLoginButton) {
   });
 }
 
-// Facebook Login
-const facebookLoginButton = document.getElementById("facebookLoginButton");
-if (facebookLoginButton) {
-  facebookLoginButton.addEventListener("click", async () => {
-    try {
-      const result = await signInWithPopup(auth, facebookProvider);
-      const user = result.user;
-      alert("Anmeldung mit Facebook erfolgreich!");
-      // Set the login status in localStorage when the user logs in
-      localStorage.setItem('isLoggedIn', 'true');
-      window.location.href = "Profil_eingelogt.html";
-    } catch (error) {
-      alert(`Fehler bei der Facebook-Anmeldung: ${error.message} (Code: ${error.code})`);
-    }
-  });
-}
-
 // Benutzername aktualisieren
 const profileForm = document.getElementById("profileForm");
 if (profileForm) {
@@ -135,6 +119,7 @@ if (profileForm) {
         await updateDoc(doc(db, "users", user.uid), { username: newUsername });
         await updateProfile(user, { displayName: newUsername });
         alert("Profil aktualisiert!");
+        document.getElementById("profileUsernameDisplay").textContent = newUsername;
       } catch (error) {
         alert(`Fehler beim Aktualisieren des Profils: ${error.message} (Code: ${error.code})`);
       }
